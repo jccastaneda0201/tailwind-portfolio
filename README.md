@@ -12,22 +12,17 @@ cd my-project
 - add tailwind
 
 ```sh
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+npm install tailwindcss @tailwindcss/vite
 ```
 
-- rename to tailwind.config.cjs
-- add following content
+- Add the @tailwindcss/vite plugin to your Vite configuration.
 
 ```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
 ```
 
 - remove App.css
